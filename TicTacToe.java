@@ -216,7 +216,7 @@ public static void get_input() {
         } else if (board[0][2]+board[1][1]+board[2][0]=="XXX"&&board[0][2]+board[1][1]+board[2][0]=="X X X") {
             System.out.println(p1+"won the game");
         }
-//cross line for O
+//cross line for o check
         else if (board[0][0]+board[1][1]+board[2][2]=="OOO"&&board[0][0]+board[1][1]+board[2][2]=="O O O") {
             System.out.println(p2+"won the game");
         } else if (board[0][2]+board[1][1]+board[2][0]=="OOO"&&board[0][2]+board[1][1]+board[2][0]=="O O O") {
