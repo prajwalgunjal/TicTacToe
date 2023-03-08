@@ -42,12 +42,12 @@ public class TicTacToe{
             }
             System.out.println();
         }
-        }
-        public static void player1() {
-            Scanner sc = new Scanner(System.in);
-            System.out.println(p1 + "Enter the location number where you want to mark your sign");
-            int location = sc.nextInt();
-            while(turn<=5){
+    }
+    public static void player1() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println(p1 + "Enter the location number where you want to mark your sign");
+        int location = sc.nextInt();
+        while(turn<=5){
             if (location == 1) {
                 turn++;
                 board[0][0] = p1charater;
@@ -104,126 +104,142 @@ public class TicTacToe{
                 player2();
             }
         }
-        }
-        public static void player2(){
-            Scanner sc = new Scanner(System.in);
-            System.out.println(p2+"Enter the location number where you want to mark your sign");
-            int location = sc.nextInt();
-            while(turn2<=4) {
-                if (location == 1) {
-                    turn2++;
-                    board[0][0] = p2character;
-                    display();
-                    checkWinner();
-                    player1();
-                } else if (location == 2) {
-                    turn2++;
-                    board[0][1] = p2character;
-                    display();
-                    checkWinner();
-                    player1();
-                } else if (location == 3) {
-                    turn2++;
-                    board[0][2] = p2character;
-                    display();
-                    checkWinner();
-                    player1();
-                } else if (location == 4) {
-                    turn2++;
-                    board[1][0] = p2character;
-                    display();
-                    checkWinner();
-                    player1();
-                } else if (location == 5) {
-                    turn2++;
-                    board[1][1] = p2character;
-                    display();
-                    checkWinner();
-                    player1();
-                } else if (location == 6) {
-                    turn2++;
-                    board[1][2] = p2character;
-                    display();
-                    checkWinner();
-                    player1();
-                } else if (location == 7) {
-                    turn2++;
-                    board[2][0] = p2character;
-                    display();
-                    checkWinner();
-                    player1();
-                } else if (location == 8) {
-                    turn2++;
-                    board[2][1] = p2character;
-                    display();
-                    checkWinner();
-                    player1();
-                } else {
-                    turn2++;
-                    board[2][2] = p2character;
-                    display();
-                    checkWinner();
-                    player1();
-                }
-            }
-        }
-public static void get_input() {
-        if (headsTailsCHoice == ans) {
+    }
+    public static void player2(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println(p2+"Enter the location number where you want to mark your sign");
+        int location = sc.nextInt();
+        while(turn2<=4) {
+            if (location == 1) {
+                turn2++;
+                board[0][0] = p2character;
+                display();
+                checkWinner();
+                player1();
+            } else if (location == 2) {
+                turn2++;
+                board[0][1] = p2character;
+                display();
+                checkWinner();
+                player1();
+            } else if (location == 3) {
+                turn2++;
+                board[0][2] = p2character;
+                display();
+                checkWinner();
+                player1();
+            } else if (location == 4) {
+                turn2++;
+                board[1][0] = p2character;
+                display();
+                checkWinner();
+                player1();
+            } else if (location == 5) {
+                turn2++;
+                board[1][1] = p2character;
+                display();
+                checkWinner();
+                player1();
+            } else if (location == 6) {
+                turn2++;
+                board[1][2] = p2character;
+                display();
+                checkWinner();
+                player1();
+            } else if (location == 7) {
+                turn2++;
+                board[2][0] = p2character;
+                display();
+                checkWinner();
+                player1();
+            } else if (location == 8) {
+                turn2++;
+                board[2][1] = p2character;
+                display();
+                checkWinner();
+                player1();
+            } else {
+                turn2++;
+                board[2][2] = p2character;
+                display();
+                checkWinner();
                 player1();
             }
-         else {
+        }
+    }
+    public static void get_input() {
+        if (headsTailsCHoice == ans) {
+            player1();
+        }
+        else {
             player2();
         }
-
     }
+
     public static void checkWinner(){
         // Hori for x
-        if(board[0][0]+board[0][1]+board[0][2]=="XXX"&&board[0][0]+board[0][1]+board[0][2]=="X X X")
-        {
+        String str1 = board[0][0]+board[0][1]+board[0][2];
+        String str2 =board[1][0]+board[1][1]+board[1][2];
+        String str3=board[2][0]+board[2][1]+board[2][2];
+        //verti
+        String str4=board[0][0]+board[1][0]+board[2][0];
+        String str5=board[0][1]+board[1][1]+board[2][1];
+        String str6=board[0][2]+board[1][2]+board[2][2];
+        //cross line
+        String str7=board[0][0]+board[1][1]+board[2][2];
+        String str8=board[0][2]+board[1][1]+board[2][0];
+
+        String compare = "XXX";
+        String compare2="OOO";
+        if(str1.equals(compare)){
             System.out.println(p1+"won the game");
-        } else if (board[1][0]+board[1][1]+board[1][2]=="XXX"&&board[1][0]+board[1][1]+board[1][2]=="X X X") {
+        } else if (str2.equals(compare)) {
             System.out.println(p1+"won the game");
-        } else if (board[2][0]+board[2][1]+board[2][2]=="XXX"&&board[2][0]+board[2][1]+board[2][2]=="X X X") {
+
+        } else if (str3.equals(compare)) {
             System.out.println(p1+"won the game");
         }
         // hori for O
-        else if (board[0][0]+board[0][1]+board[0][2]=="OOO"&&board[0][0]+board[0][1]+board[0][2]=="O O O") {
+        else if (str1.equals(compare2)) {
             System.out.println(p2+"won the game");
-        } else if (board[1][0]+board[1][1]+board[1][2]=="OOO"&&board[1][0]+board[1][1]+board[1][2]=="O O O") {
+        } else if (str2.equals(compare2)) {
             System.out.println(p2+"won the game");
-        } else if (board[2][0]+board[2][1]+board[2][2]=="OOO"&&board[2][0]+board[2][1]+board[2][2]=="O O O") {
+        } else if (str3.equals(compare2)) {
             System.out.println(p2+"won the game");
         }
 // vertical for x
-        else if (board[0][0]+board[1][0]+board[2][0]=="XXX"&&board[0][0]+board[1][0]+board[2][0]=="X X X") {
+        else if (str4.equals(compare)) {
             System.out.println(p1+"won the game");
-        } else if (board[0][1]+board[1][1]+board[2][1]=="XXX"&&board[0][1]+board[1][1]+board[2][1]=="X X X") {
+        } else if (str5.equals(compare)) {
             System.out.println(p1+"won the game");
-        } else if (board[0][2]+board[1][2]+board[2][2]=="XXX"&&board[0][2]+board[1][2]+board[2][2]=="X X X") {
+        } else if (str6.equals(compare)) {
             System.out.println(p1+"won the game");
         }
 // vertical for o
-        else if (board[0][0]+board[1][0]+board[2][0]=="OOO"&&board[0][0]+board[1][0]+board[2][0]=="O O O") {
+        else if (str4.equals(compare2)) {
             System.out.println(p2+"won the game");
-        } else if (board[0][1]+board[1][1]+board[2][1]=="OOO"&&board[0][1]+board[1][1]+board[2][1]=="O O O") {
+        } else if (str5.equals(compare2)) {
             System.out.println(p2+"won the game");
-        } else if (board[0][2]+board[1][2]+board[2][2]=="OOO"&&board[0][2]+board[1][2]+board[2][2]=="O O O") {
+        } else if (str6.equals(compare2)) {
             System.out.println(p2+"won the game");
         }
         // cross line check for x
-        else if (board[0][0]+board[1][1]+board[2][2]=="XXX"&& board[0][0]+board[1][1]+board[2][2]=="X X X") {
+        else if (str7.equals(compare)) {
             System.out.println(p1+"won the game");
-        } else if (board[0][2]+board[1][1]+board[2][0]=="XXX"&&board[0][2]+board[1][1]+board[2][0]=="X X X") {
+        } else if (str8.equals(compare)) {
             System.out.println(p1+"won the game");
         }
-//cross line for o check
-        else if (board[0][0]+board[1][1]+board[2][2]=="OOO"&&board[0][0]+board[1][1]+board[2][2]=="O O O") {
-            System.out.println(p2+"won the game");
-        } else if (board[0][2]+board[1][1]+board[2][0]=="OOO"&&board[0][2]+board[1][1]+board[2][0]=="O O O") {
+//cross line for O
+        else if (str7.equals(compare2)) {
             System.out.println(p2+"won the game");
         }
+        else if (str8.equals(compare2)) {
+            System.out.println(p2+"won the game");
+        }
+
     }
-    public static void main(String[] args) {
+
+    public static void repeat(){
         board[0][0]="1";
         board[0][1]="2";
         board[0][2]="3";
@@ -237,5 +253,40 @@ public static void get_input() {
         HeadsTails();
         display();
         get_input();
+    }
+    public static void board(){
+        board[0][0] = "1";
+        board[0][1] = "2";
+        board[0][2] = "3";
+        board[1][0] = "4";
+        board[1][1] = "5";
+        board[1][2] = "6";
+        board[2][0] = "7";
+        board[2][1] = "8";
+        board[2][2] = "9";
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(true) {
+            board();
+            chooseYourChar();
+            HeadsTails();
+            display();
+            get_input();
+            System.out.println("do you want to play again? \t 1) yes \t 2) no ");
+            int wanttoplay=sc.nextInt();
+            if(wanttoplay==1)
+            {
+                board();
+                chooseYourChar();
+                HeadsTails();
+                display();
+                get_input();
+            }else {
+                System.out.println("End of the game:) ");
+                System.exit(0);
+            }
+        }
     }
 }
